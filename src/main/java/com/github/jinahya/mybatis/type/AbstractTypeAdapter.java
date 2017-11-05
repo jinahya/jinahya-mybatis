@@ -37,7 +37,8 @@ public abstract class AbstractTypeAdapter<T extends TypeConverter<X, ?>, X>
     protected final T converter() {
         if (converter == null) {
             try {
-                converter = converterClass.newInstance();
+                converter
+                        = converterClass.getDeclaredConstructor().newInstance();
             } catch (final ReflectiveOperationException roe) {
                 throw new RuntimeException(roe);
             }

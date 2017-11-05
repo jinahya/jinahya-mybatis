@@ -14,16 +14,12 @@ public class DateMillisConverter implements TypeConverter<Date, Long> {
 
     @Override
     public Date toAttributeType(final Long columnValue) {
-        return ofNullable(columnValue)
-                .map(Date::new)
-                .orElse(null);
+        return ofNullable(columnValue).map(Date::new).orElse(null);
     }
     
     @Override
     public Long toAttributeType(final Date attributeValue) {
-        return ofNullable(attributeValue)
-                .map(Date::getTime)
-                .orElse(null);
+        return ofNullable(attributeValue).map(Date::getTime).orElse(null);
     }
 }
 ```
